@@ -7,7 +7,7 @@ This Go package provides functionality to generate RSA key pairs. It includes a 
 To install this package, run the following command:
 
 ```bash
-go get -u github.com/metadiv-tech/pkg_rsa
+go get -u github.com/metadiv-go-tech/pkg_rsa
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/metadiv-tech/pkg_rsa"
+	"github.com/metadiv-go-tech/pkg_rsa"
 )
 
 func main() {
