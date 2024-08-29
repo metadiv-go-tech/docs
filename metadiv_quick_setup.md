@@ -1,6 +1,6 @@
-# Metadiv `quick_setup.go`
+# Metadiv `quick-setup.go`
 
-Here is the example of the `quick_setup.go` file:
+Here is the example of the `quick-setup.go` file:
 
 ```go
 package mod_meta_static
