@@ -1,20 +1,10 @@
 # MetaDiv Go Mod
 
-For all packages and modules in the metadiv go ecosystem,
-we use the following go module path:
+To initialize your go project, you should run the following command to `go mod init`:
 
-```
-github.com/metadiv-go-tech/<module-name>
-```
-
-**Note**: `<module-name>` is the name of the module, please replace it with the actual module name.
-
-## How to go mod init
-
-To initialize a new go module, you can use the following command:
-
-```bash
-go mod init github.com/metadiv-go-tech/<module-name>
+```base
+go mod init github.com/metadiv-go-tech/project
 ```
 
-**Note**: `<module-name>` is the name of the module, please replace it with the actual module name.
+- we always use the `github.com/metadiv-go-tech` as the prefix of the module name.
+- `project` is the name of the project, you should replace it with your project name.
