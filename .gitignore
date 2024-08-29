@@ -31,3 +31,4 @@ __debug_bin*
 # Metadiv
 apis/
 assets/
+logs/
