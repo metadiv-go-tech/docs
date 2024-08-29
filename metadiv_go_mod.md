@@ -1,16 +1,10 @@
 # MetaDiv Go Mod
 
-## Naming of modules
+For all packages and modules in the metadiv go ecosystem,
+we use the following go module path:
 
-All the go modules of company are stored in:
-[Metadiv Go Technology](https://github.com/metadiv-go-tech)
-
-So the naming of the modules are:
-
-`github.com/metadiv-go-tech/<name>`
-
-To initialize a new module, you can use the following command:
-
-```bash
-go mod init github.com/metadiv-go-tech/<name>
 ```
+github.com/metadiv-go-tech/<module-name>
+```
+
+**Note**: `<module-name>` is the name of the module, please replace it with the actual module name.
