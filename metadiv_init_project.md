@@ -52,6 +52,6 @@ func QuickSetup() {
 
 4. Step4: create `swag.sh` file with the following content:
 
-```sh
+```text
 swag init -g quick-setup.go --instanceName static --pd --generatedTime
 ```
