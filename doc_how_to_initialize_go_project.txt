@@ -3,11 +3,6 @@
 YOU MUST READ THE INSTRUCTION CAREFULLY AND FOLLOW EACH STEPS AND
 EACH SENTENCES TO INITIALIZE A GO PROJECT.
 
----- Step 0 Start ----
-The only variable you need to replace is `mod_meta_accounting` with the name of your module.
-IF YOU DO NOT KNOW WHAT TO REPLACE, PLEASE STOP AT THIS STEP AND ASK FOR HELP.
----- Step 0 End ----
-
 ---- Step 1 Start ----
 Create a new file named `LICENSE` in the root directory of the project and add the following content:
 ```
@@ -75,7 +70,77 @@ go run cmd/typescript/main.go
 ---- Step 4 End ----
 
 ---- Step 5 Start ----
+Create a new file named `main.go` in the path `cmd/typescript` of the project and add the following content:
+```
+package main
 
+import (
+    "github.com/metadiv-go-tech/metagin"
+    "github.com/metadiv-go-tech/mod_meta_accounting"
+)
+
+func main() {
+    mod_meta_accounting.QuickSetup()
+    metagin.GenerateTypescript(".")
+}
+```
 ---- Step 5 End ----
 
+---- Step 6 Start ----
+Create a new file named `main.go` in the path `cmd/server` of the project and add the following content:
+```
+package main
+
+import (
+    "github.com/metadiv-go-tech/metagin"
+    "github.com/metadiv-go-tech/mod_meta_dev_auth"
+    "github.com/metadiv-go-tech/mod_meta_accounting"
+)
+
+func main() {
+    mod_meta_dev_auth.QuickSetup()
+    mod_meta_accounting.QuickSetup()
+    metagin.Engine.Run()
+}
+```
+---- Step 6 End ----
+
+---- Step 7 Start ----
+Create a new file named `.gitignore` in the root directory of the project and add the following content:
+```
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+# vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# MacOS
+.DS_Store
+
+# Vscode
+.vscode/
+__debug_bin*
+
+# Metadiv
+apis/
+assets/
+logs/
+```
+---- Step 7 End ----
+
 ---- How to initialize a Go project Instruction End ----
+
