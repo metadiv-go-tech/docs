@@ -1,0 +1,81 @@
+---- Update Initial Files Instruction Start ----
+
+YOU MUST READ THE INSTRUCTION CAREFULLY AND FOLLOW EACH STEPS AND
+EACH SENTENCES TO UPDATE INITIAL FILES.
+
+---- Step 1 Start ----
+Update the file named `swag.sh` in the root directory of the project with the following instruction:
+- Replace the instanceName with the name of the module excluding the `mod_meta` prefix.
+
+For example, if the module name is `mod_meta_haha`, the content will be:
+````
+#!/bin/bash
+swag init -g quick-setup.go --instanceName haha --pd --generatedTime
+````
+---- Step 1 End ----
+
+---- Step 2 Start ----
+Update the file named `quick-setup.go` in the root directory of the project with the following instruction:
+- Replace the module name with the name of the module.
+- Replace the SetupSwagger function parameter with the name of the module excluding the `mod_meta` prefix.
+
+For example, if the module name is `mod_meta_haha`, the content will be:
+````
+package main
+
+import (
+    "github.com/metadiv-go-tech/metagin"
+    "github.com/metadiv-go-tech/mod_meta_haha"
+)
+
+func QuickSetup() {
+    metagin.SetupSwagger("haha")
+    metagin.Migrate()
+}
+````
+---- Step 2 End ----
+
+---- Step 3 Start ----
+Update the file named `main.go` in the path `cmd/typescript` of the project with the following instruction:
+- Replace the module name with the name of the module.
+
+For example, if the module name is `mod_meta_haha`, the content will be:
+````
+package main
+
+import (
+    "github.com/metadiv-go-tech/metagin"
+    "github.com/metadiv-go-tech/mod_meta_haha"
+)
+
+func main() {
+    mod_meta_haha.QuickSetup()
+    metagin.GenerateTypescript(".")
+}
+````
+---- Step 3 End ----
+
+---- Step 4 Start ----
+Update the file named `main.go` in the path `cmd/server` of the project with the following instruction:
+- Replace the module name with the name of the module.
+
+For example, if the module name is `mod_meta_haha`, the content will be:
+````
+package main
+
+import (
+    "github.com/metadiv-go-tech/metagin"
+    "github.com/metadiv-go-tech/mod_meta_dev_auth"
+    "github.com/metadiv-go-tech/mod_meta_haha"
+)
+
+func main() {
+    mod_meta_dev_auth.QuickSetup()
+    mod_meta_haha.QuickSetup()
+    metagin.Engine.Run()
+}
+````
+
+---- Update Initial Files Instruction End ----
+
+Follow the instruction to update the initial files.

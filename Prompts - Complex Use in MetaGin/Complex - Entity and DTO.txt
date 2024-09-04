@@ -1,0 +1,83 @@
+--- Entity and DTO Instruction Start ---
+
+This instruction shows the relationship between entity and DTO.
+Follow the example to setup the entity and DTO correctly.
+
+--- Example 1 Start ---
+
+File: /model/entity/FleetDriver.go
+```
+package entity
+
+import (
+	"strings"
+
+	"github.com/metadiv-go-tech/metagin/base"
+	"github.com/metadiv-go-tech/metaorm"
+	"github.com/metadiv-go-tech/mod_meta_fleet_unit/model/dto"
+)
+
+type FleetDriver struct {
+	base.Model
+	base.ModelWorkspace
+
+	Avatar string `json:"avatar"`
+
+	Salutation string `json:"salutation"`
+	FirstName  []byte `json:"first_name"`
+	LastName   []byte `json:"last_name"`
+	Email      []byte `json:"email"`
+	Phone      []byte `json:"phone"`
+
+	AddressId *uint `json:"address_id"`
+	Address   *Address `json:"address"`
+
+	IdCardNumber []byte `json:"id_card_number"`
+	IdCardDocs   string `json:"id_card_docs"` // uuids, comma separated
+	Active       bool   `json:"active"`
+}
+
+func (f *FleetDriver) ToDTO() *dto.FleetDriver {
+	dto := &dto.FleetDriver{
+		ID:                      f.ID,
+		Avatar:                  f.Avatar,
+		Salutation:              f.Salutation,
+		FirstName:               metaorm.Encryption.Decrypt(f.FirstName),
+		LastName:                metaorm.Encryption.Decrypt(f.LastName),
+		Email:                   metaorm.Encryption.Decrypt(f.Email),
+		Phone:                   metaorm.Encryption.Decrypt(f.Phone),
+		AddressId:               f.AddressId,
+		IdCardNumber:            metaorm.Encryption.Decrypt(f.IdCardNumber),
+		Active:                  f.Active,
+	}
+	if f.IdCardDocs != "" {
+		dto.IdCardDocs = strings.Split(f.IdCardDocs, ",")
+	}
+	if f.Address != nil {
+		dto.Address = f.Address.ToDTO()
+	}
+	return dto
+}
+```
+
+File: /model/dto/FleetDriver.go
+```
+package dto
+type FleetDriver struct {
+	ID           uint     `json:"id"`
+	Avatar       string   `json:"avatar"`
+	Salutation   string   `json:"salutation"`
+	FirstName    string   `json:"first_name"`
+	LastName     string   `json:"last_name"`
+	Email        string   `json:"email"`
+	Phone        string   `json:"phone"`
+	AddressId    uint     `json:"address_id"`
+	Address      *Address `json:"address"`
+	IdCardNumber string   `json:"id_card_number"`
+	IdCardDocs   []string `json:"id_card_docs"`
+	Active       bool     `json:"active"`
+}
+```
+--- Example 1 End ---
+
+--- Entity and DTO Instruction End ---

@@ -144,3 +144,4 @@ logs/
 
 ---- How to initialize a Go project Instruction End ----
 
+Follow the instruction and create all files needed.

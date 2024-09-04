@@ -1,0 +1,56 @@
+---- Base Entity Component Instruction Start ----
+
+--- Example 1 Start ---
+This example shows the entity without workspace.
+
+File: /model/entity/User.go
+```
+package entity
+
+import "github.com/metadiv-go-tech/metagin/base"
+
+type User struct {
+    base.Model
+    Name string `json:"name"`
+    Age  int    `json:"age"`
+}
+```
+--- Example 1 End ---
+
+--- Example 2 Start ---
+This example shows the entity with workspace.
+
+File: /model/entity/ChartOfAccount.go
+```
+package entity
+
+import "github.com/metadiv-go-tech/metagin/base"
+
+type ChartOfAccount struct {
+    base.Model
+    base.ModelWorkspace
+    Name string `json:"name"`
+    Code string `json:"code"`
+}
+```
+--- Example 2 End ---
+
+--- Example 3 Start ---
+For the entity with encrypted field,
+setup the type of the field as []byte.
+
+File: /model/entity/User.go
+```
+package entity
+
+import "github.com/metadiv-go-tech/metagin/base"
+
+type User struct {
+    base.Model
+    Name          []byte `json:"name"`
+    DisplayName   []byte `json:"display_name"`
+    Age           int    `json:"age"`
+    Password      []byte `json:"password"`
+}
+```
+---- Base Entity Component Instruction End ----

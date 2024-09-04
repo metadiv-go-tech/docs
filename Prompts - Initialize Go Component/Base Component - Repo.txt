@@ -1,0 +1,37 @@
+---- Base Repo Component Instruction Start ----
+
+--- Example 1 Start ---
+File: /repo/UserRepo.go
+```
+package repo
+
+import (
+    "github.com/metadiv-go-tech/metagin/base"
+)
+
+var UserRepo = new(userRepo)
+
+type userRepo struct {
+    base.Repository[entity.User]
+}
+```
+--- Example 1 End ---
+
+--- Example 2 Start ---
+File: /repo/ChartOfAccountRepo.go
+```
+package repo
+
+import (
+    "github.com/metadiv-go-tech/metagin/base"
+)
+
+var ChartOfAccountRepo = new(chartOfAccountRepo)
+
+type chartOfAccountRepo struct {
+    base.Repository[entity.ChartOfAccount]
+}
+```
+--- Example 2 End ---
+
+---- Base Repo Component Instruction End ----

@@ -1,0 +1,15 @@
+---- Go get modules Instruction Start ----
+
+To install the modules in the ecosystem of MetaGin, you can use the following command:
+```
+go get -u github.com/metadiv-go-tech/<module>
+```
+
+For example, to install the `mod_meta_accounting` module, you can use the following command:
+```
+go get -u github.com/metadiv-go-tech/mod_meta_accounting
+```
+
+---- Go get modules Instruction End ----
+
+Construct the command for the following module:

@@ -1,0 +1,15 @@
+---- Import Entity Instruction Start ----
+
+To import the entity package from a external module, you can use the following command:
+```
+moduleDto "github.com/metadiv-go-tech/<module>/model/dto"
+```
+
+For example, to import the entity package from the `mod_meta_accounting` module, you can use the following command:
+```
+accountingDto "github.com/metadiv-go-tech/mod_meta_accounting/model/dto"
+```
+
+---- Import Entity Instruction End ----
+
+Construct the command for the following module:

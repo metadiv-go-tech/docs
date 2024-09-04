@@ -1,0 +1,16 @@
+---- How to construct the go mod init command instruction Start ----
+
+To initialize a new Go module, run the following command:
+```
+go mod init github.com/metadiv-go-tech/<module-name>
+```
+
+Replace `<module-name>` with the name of the module.
+For example, if the module name is `mod_meta_accounting`, the command will be:
+```
+go mod init github.com/metadiv-go-tech/mod_meta_accounting
+```
+
+---- How to construct the go mod init command instruction End ----
+
+Generate the command to initialize a new Go module.
