@@ -23,4 +23,45 @@ The above copyright notice and this permission notice shall be included in all c
 ```
 ---- Step 1 End ----
 
+---- Step 2 Start ----
+Create a new file named `quick-setup.go` in the root directory of the project and add the following content and 
+please replace the `mod_meta_accounting` with the name of your module:
+```
+package mod_meta_accounting
+
+import (
+    "github.com/metadiv-go-tech/metagin"
+
+    _ "github.com/metadiv-go-tech/mod_meta_accounting/docs"
+)
+
+// @title mod_meta_accounting
+// @version v1.0.0
+
+// @license.name All rights reserved by Metadiv Technology Limited
+// @license.url https://metadiv.io
+
+func QuickSetup() {
+    metagin.SetupSwagger("accounting")
+    metagin.Migrate()
+}
+```
+---- Step 2 End ----
+
+---- Step 3 Start ----
+Create a new file named `swag.sh` in the root directory of the project and add the following content:
+```
+#!/bin/bash
+swag init -g quick-setup.go --instanceName accounting --pd --generatedTime
+```
+---- Step 3 End ----
+
+---- Step 4 Start ----
+Create a new file named `typescript.sh` in the root directory of the project and add the following content:
+```
+#!/bin/bash
+go run cmd/typescript/main.go
+```
+---- Step 4 End ----
+
 ---- How to initialize a Go project Instruction End ----
