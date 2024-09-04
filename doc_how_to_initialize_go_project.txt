@@ -34,6 +34,7 @@ The above copyright notice and this permission notice shall be included in all c
 ---- Step 2 Start ----
 Create a new file named `quick-setup.go` in the root directory of the project and add the following content and 
 please replace the `mod_meta_accounting` with the name of your module:
+(The SetupSwagger name is the name of the module excluding the `mod_meta` prefix)
 ```
 package mod_meta_accounting
 
@@ -58,6 +59,7 @@ func QuickSetup() {
 
 ---- Step 3 Start ----
 Create a new file named `swag.sh` in the root directory of the project and add the following content:
+(The instanceName is the name of the module excluding the `mod_meta` prefix)
 ```
 #!/bin/bash
 swag init -g quick-setup.go --instanceName accounting --pd --generatedTime
