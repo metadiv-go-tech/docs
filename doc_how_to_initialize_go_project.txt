@@ -1,5 +1,13 @@
 ---- How to initialize a Go project Instruction Start ----
 
+YOU MUST READ THE INSTRUCTION CAREFULLY AND FOLLOW EACH STEPS AND
+EACH SENTENCES TO INITIALIZE A GO PROJECT.
+
+---- Step 0 Start ----
+The only variable you need to replace is `mod_meta_accounting` with the name of your module.
+IF YOU DO NOT KNOW WHAT TO REPLACE, PLEASE STOP AT THIS STEP AND ASK FOR HELP.
+---- Step 0 End ----
+
 ---- Step 1 Start ----
 Create a new file named `LICENSE` in the root directory of the project and add the following content:
 ```
@@ -63,5 +71,9 @@ Create a new file named `typescript.sh` in the root directory of the project and
 go run cmd/typescript/main.go
 ```
 ---- Step 4 End ----
+
+---- Step 5 Start ----
+
+---- Step 5 End ----
 
 ---- How to initialize a Go project Instruction End ----
