@@ -1,0 +1,49 @@
+--- Setup Routes Instruction Start ---
+
+--- Example 1 Start ---
+
+This is the example of workspace management apis:
+```
+metagin.Post("/admin/auth/workspace", handler.ApiAdminOnlyWorkspaceCreate, &metagin.ApiHandlerOpts{
+    TypescriptOpts: &metagin.TypescriptOpts{
+        FunctionName: "adminOnlyCreateWorkspace",
+        Models:       []any{request.AdminWorkspaceCreate{}, dto.Workspace{}},
+        Body:         "AdminWorkspaceCreate",
+        Response:     "Workspace",
+    },
+})
+metagin.Put("/admin/auth/workspace/:id", handler.ApiAdminOnlyWorkspaceUpdate, &metagin.ApiHandlerOpts{
+    TypescriptOpts: &metagin.TypescriptOpts{
+        FunctionName: "adminOnlyUpdateWorkspace",
+        Models:       []any{request.AdminWorkspaceUpdate{}, dto.Workspace{}},
+        Paths:        []string{"id"},
+        Body:         "AdminWorkspaceUpdate",
+        Response:     "Workspace",
+    },
+})
+metagin.Delete("/admin/auth/workspace/:id", handler.ApiAdminOnlyWorkspaceDelete, &metagin.ApiHandlerOpts{
+    TypescriptOpts: &metagin.TypescriptOpts{
+        FunctionName: "adminOnlyDeleteWorkspace",
+        Paths:        []string{"id"},
+    },
+})
+metagin.Get("/admin/auth/workspace/:id", handler.ApiAdminOnlyWorkspaceGet, &metagin.ApiHandlerOpts{
+    TypescriptOpts: &metagin.TypescriptOpts{
+        FunctionName: "adminOnlyGetWorkspace",
+        Models:       []any{dto.Workspace{}},
+        Paths:        []string{"id"},
+        Response:     "Workspace",
+    },
+})
+metagin.Get("/admin/auth/workspace", handler.ApiAdminOnlyWorkspaceList, &metagin.ApiHandlerOpts{
+    TypescriptOpts: &metagin.TypescriptOpts{
+        FunctionName: "adminOnlyGetWorkspaces",
+        Models:       []any{dto.Workspace{}},
+        Forms:        []string{"page", "size", "field", "asc", "keyword"},
+        Response:     "Workspace[]",
+    },
+})
+```
+--- Example 1 End ---
+
+--- Setup Routes Instruction End ---

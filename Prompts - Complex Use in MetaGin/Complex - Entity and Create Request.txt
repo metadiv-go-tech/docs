@@ -1,0 +1,66 @@
+---- Entity and Create Request Instruction Start ----
+
+This instruction shows the relationship between entity and create request.
+Follow the example to setup the entity and create request correctly.
+
+--- Example 1 Start ---
+
+File: /model/entity/FleetDriver.go
+```
+package entity
+
+import (
+	"strings"
+
+	"github.com/metadiv-go-tech/metagin/base"
+)
+
+type FleetDriver struct {
+	base.Model
+	base.ModelWorkspace
+
+	DisplayName string `json:"driver_display_name"`
+	Name        []byte `json:"driver_name"`
+	Phone       []byte `json:"driver_phone"`
+	Email       []byte `json:"driver_email"`
+
+	AddressId *uint `json:"address_id"`
+	Address   *Address `json:"address"`
+
+	LicenseNumber []byte `json:"driver_license_number"`
+	LicenseDocs   string `json:"driver_license_docs"` // list of uuid, separated by comma
+}
+```
+
+File: /model/request/FleetDriverCreate.go
+```
+package request
+type FleetDriverCreate struct {
+	DisplayName    string   `json:"driver_display_name"`
+	Name           string   `json:"driver_name"`
+	Phone          string   `json:"driver_phone"`
+	Email          string   `json:"driver_email"`
+	AddressId      *uint    `json:"address_id"`
+	LicenseNumber  string   `json:"driver_license_number"`
+	LicenseDocs    []string `json:"driver_license_docs"` // list of uuid, separated by comma
+}
+
+func (r *FleetDriverCreate) ToEntity() *entity.FleetDriver {
+	d := &entity.FleetDriver{
+		DisplayName:   r.DisplayName,
+		Name:          r.Name,
+		Phone:         r.Phone,
+		Email:         r.Email,
+		AddressId:     r.AddressId,
+		LicenseNumber: r.LicenseNumber,
+	}
+	if len(r.LicenseDocs) > 0 {
+		d.LicenseDocs = strings.Join(r.LicenseDocs, ",")
+	}
+	return d
+}
+```
+--- Example 1 End ---
+
+---- Entity and Create Request Instruction End ----
+

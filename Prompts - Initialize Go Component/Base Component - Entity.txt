@@ -53,4 +53,6 @@ type User struct {
     Password      []byte `json:"password"`
 }
 ```
+--- Example 3 End ---
+
 ---- Base Entity Component Instruction End ----
